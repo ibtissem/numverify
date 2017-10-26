@@ -5,25 +5,27 @@ from odoo import api, models, fields
 
 
 class WebsiteConfigSettings(models.TransientModel):
-    _inherit = 'website.config.settings'
+    _inherit = 'res.config.settings'
 
     #Api key of numverify.com 
     api_numverify = fields.Char(related='website_id.api_numverify') 
     
     @api.model
-    def get_default_api_numverify(self, fields):
-        website_obj = self.env['website']
-        website = website_obj.search([])
+    def get_values(self):
+        get_param = self.env['ir.config_parameter'].sudo().get_param
+        res = super(WebsiteConfigSettings, self).get_values()  
+        website = self.env['website'].search([])
         if website:
-            return {'api_numverify': website[0].api_numverify }
- 
-    @api.multi
-    def set_api_numverify(self):
-        website_obj = self.env['website']
-        for record in self:
-            website = website_obj.search([])
-            numm = record.api_numverify
-            if website:
-                for wbs in website:
-                    wbs.write({'api_numverify': record.api_numverify })
-        return True
+            res.update(
+                api_numverify = website[0].api_numverify,
+            )
+        return res
+    
+    def set_values(self):
+        super(WebsiteConfigSettings, self).set_values() 
+        set_param = self.env['ir.config_parameter'].sudo().set_param
+        website = self.env['website'].search([])
+        add = self.api_numverify
+        rreess = website.write({'api_addressverify': self.api_numverify})
+        set_param('website.api_numverify', self.api_numverify)
+    
