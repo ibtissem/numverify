@@ -1,29 +1,19 @@
 # -*- coding: utf-8 -*-
-
 {
-    'name': 'Numverify connector',
-    'version': '10.0',
-    'category': 'Search',
+    'name': 'Number verify',
+    'version': '11.0',
+    'category': 'numverify',
     'summary': '',
-    'description': """
-
-Numverify connector engine
-Numverify connector engine using https://apilayer.com/ number verification
-Url to get your proper api key after inscription: https://numverify.com/dashboard
-==========================
-
-
-    """,
-
+    'description': """ 
+            -Numverify engine using https://apilayer.com/ number verification to check phone number validation on the website checkout
+            -Url to get your proper api key after inscription: https://numverify.com/dashboard
+                   """,
     'author':  'Ibtissem Zeiri', 
-
     'depends': ['base','website','website_sale'],
-
     'data': [  
         'views/config.xml', 
-        'views/checkout.xml',
              ],
-
+    'qweb': ['static/src/xml/checkout.xml'],
     'installable': True,
     'auto_install': False,
     'application': False,

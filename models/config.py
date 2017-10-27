@@ -3,7 +3,6 @@
 
 from odoo import api, models, fields
 
-
 class WebsiteConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
 
@@ -25,7 +24,6 @@ class WebsiteConfigSettings(models.TransientModel):
         super(WebsiteConfigSettings, self).set_values() 
         set_param = self.env['ir.config_parameter'].sudo().set_param
         website = self.env['website'].search([])
-        add = self.api_numverify
-        rreess = website.write({'api_addressverify': self.api_numverify})
-        set_param('website.api_numverify', self.api_numverify)
+        for wbs in website:
+            wbs.write({'api_numverify': self.api_numverify})
     

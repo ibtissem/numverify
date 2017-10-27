@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+  <!-- Add span of verification and js file -->
+      <template id="num_inherit" name="Address Management" inherit_id="website_sale.address" >
+           <xpath expr="//div[@id='div_phone']" position="inside">
+                <span t-esc="website.api_numverify" id="span_api_key" class="api_numverify hidden"/>
+                <span id="validity_area" class=""></span>
+                <script src="/numverify/static/src/js/numverification.js"/>
+           </xpath>
+      </template>
+ </data>
+</openerp>
