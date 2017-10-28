@@ -13,8 +13,7 @@
     'data': [  
         'views/config.xml', 
         'views/checkout.xml', 
-             ],
-cu  
+             ], 
     'installable': True,
     'auto_install': False,
     'application': False,
