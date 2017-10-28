@@ -12,9 +12,9 @@
     'depends': ['base','website','website_sale'],
     'data': [  
         'views/config.xml', 
-        'views/coheckout.xml', 
+        'views/checkout.xml', 
              ],
-#     'qweb': ['static/src/xml/checkout.xml'],
+cu  
     'installable': True,
     'auto_install': False,
     'application': False,
