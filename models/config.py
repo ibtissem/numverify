@@ -11,7 +11,6 @@ class WebsiteConfigSettings(models.TransientModel):
     
     @api.model
     def get_values(self):
-        get_param = self.env['ir.config_parameter'].sudo().get_param
         res = super(WebsiteConfigSettings, self).get_values()  
         website = self.env['website'].search([])
         if website:
@@ -22,7 +21,6 @@ class WebsiteConfigSettings(models.TransientModel):
     
     def set_values(self):
         super(WebsiteConfigSettings, self).set_values() 
-        set_param = self.env['ir.config_parameter'].sudo().set_param
         website = self.env['website'].search([])
         for wbs in website:
             wbs.write({'api_numverify': self.api_numverify})
