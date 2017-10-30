@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
+
 {
     'name': 'Number verify',
-    'version': '11.0',
     'category': 'numverify',
+    'version': '1.0',
     'summary': '',
     'description': """ 
             -Numverify engine using https://apilayer.com/ number verification to check phone number validation on the website checkout
